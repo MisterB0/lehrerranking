@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lehrerranking – Admin</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="shell admin-login" id="login-shell">
+  <div class="mark">Lehrerranking – Admin</div>
+  <h1>Anmelden</h1>
+  <div class="field">
+    <label for="login-email">E-Mail</label>
+    <input type="email" id="login-email" autocomplete="username">
+  </div>
+  <div class="field">
+    <label for="login-password">Passwort</label>
+    <input type="password" id="login-password" autocomplete="current-password">
+  </div>
+  <button class="btn btn-primary" id="btn-login" style="width:100%">Anmelden</button>
+  <p class="error-note" id="login-error"></p>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-shell" id="admin-shell" style="display:none">
+  <div class="admin-header">
+    <h1>Lehrerranking – Admin</h1>
+    <button class="btn btn-quiet" id="btn-logout">Abmelden</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="overview">Uebersicht</button>
+    <button class="tab" data-panel="settings">Einstellungen</button>
+    <button class="tab" data-panel="teachers">Lehrkraefte</button>
+    <button class="tab" data-panel="questions">Fragen</button>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="admin-panel active" id="panel-overview">
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-num" id="ov-total">–</span>
+        <span class="stat-label">Stimmen insgesamt</span>
+      </div>
+    </div>
+    <h3>Verlauf</h3>
+    <p class="hint">Die letzten Stimmabgaben, unabhaengig vom Veroeffentlichungsdatum – nur hier im Admin-Bereich sichtbar.</p>
+    <div id="ov-log"></div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="admin-panel" id="panel-settings">
+    <div class="field">
+      <label for="set-title">Titel der Startseite</label>
+      <input type="text" id="set-title">
+    </div>
+    <div class="field">
+      <label for="set-text">Einleitungstext auf der Startseite</label>
+      <textarea id="set-text"></textarea>
+    </div>
+    <div class="field">
+      <label for="set-publish">Veroeffentlichungsdatum der Ergebnisse</label>
+      <input type="datetime-local" id="set-publish">
+    </div>
+    <p class="hint">Bis zu diesem Zeitpunkt sind die Ergebnisse fuer niemanden sichtbar.</p>
+    <button class="btn btn-primary" id="btn-save-settings">Speichern</button>
+  </section>
+
+  <!-- TEACHERS -->
+  <section class="admin-panel" id="panel-teachers">
+    <div id="teacher-list"></div>
+    <div class="add-form">
+      <div class="field">
+        <label for="new-teacher-name">Name</label>
+        <input type="text" id="new-teacher-name" placeholder="z. B. Frau Berger">
+      </div>
+      <div class="field">
+        <label for="new-teacher-subject">Fach (optional)</label>
+        <input type="text" id="new-teacher-subject" placeholder="z. B. Mathematik">
+      </div>
+      <button class="btn" id="btn-add-teacher">Lehrkraft hinzufuegen</button>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="admin-panel" id="panel-questions">
+    <div id="question-list"></div>
+    <div class="add-form">
+      <div class="field">
+        <label for="new-question-text">Frage</label>
+        <input type="text" id="new-question-text" placeholder="z. B. Wer erklaert am verstaendlichsten?">
+      </div>
+      <button class="btn" id="btn-add-question">Frage hinzufuegen</button>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

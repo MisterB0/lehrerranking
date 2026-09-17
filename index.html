@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lehrerranking</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="shell">
+  <div class="mark">Lehrerranking</div>
+
+  <!-- START -->
+  <section id="screen-start" class="screen active">
+    <h1 id="start-title">Lehrerranking</h1>
+    <p class="intro-text" id="start-text">Text wird geladen ...</p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-start">Quiz starten</button>
+    </div>
+
+    <div class="status-line" id="status-line"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="screen-quiz" class="screen">
+    <div class="progress-head">
+      <span id="progress-label">Frage 1 von 1</span>
+      <span id="progress-percent">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+    <h2 class="question-text" id="question-text">&nbsp;</h2>
+    <div class="teacher-grid" id="teacher-grid"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-quiet" id="btn-back">Zurueck</button>
+      <span style="flex:1"></span>
+      <button class="btn btn-primary" id="btn-next" disabled>Weiter</button>
+    </div>
+  </section>
+
+  <!-- DONE -->
+  <section id="screen-done" class="screen">
+    <h1>Danke fuer deine Stimme</h1>
+    <p class="intro-text" id="done-text">Deine Antworten wurden gespeichert.</p>
+    <div class="btn-row">
+      <button class="btn" id="btn-edit-again">Antworten aendern</button>
+      <button class="btn btn-quiet" id="btn-to-start">Zur Startseite</button>
+    </div>
+  </section>
+
+  <!-- REVEAL -->
+  <section id="screen-reveal" class="screen">
+    <div class="reveal-wrap">
+      <div class="reveal-num" id="reveal-num">0</div>
+      <div class="reveal-label" id="reveal-label">Personen haben abgestimmt</div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="screen-results" class="screen">
+    <h1>Ergebnisse</h1>
+    <p class="loading-note" id="results-meta"></p>
+
+    <div class="search-wrap">
+      <input type="text" id="teacher-search" placeholder="Lehrkraft suchen ...">
+      <div class="search-suggestions" id="search-suggestions"></div>
+    </div>
+
+    <div class="teacher-detail" id="teacher-detail" style="display:none"></div>
+
+    <div id="results-content"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-quiet" id="btn-edit-from-results">Meine Antworten bearbeiten</button>
+      <button class="btn btn-quiet" id="btn-results-back">Zur Startseite</button>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
